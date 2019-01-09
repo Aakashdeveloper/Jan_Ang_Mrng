@@ -1,0 +1,27 @@
+packages
+
+npm
+nodejs
+//////////////////
+package.json
+
+npm init
+npm install
+
+comnad line interface
+npm install -g @angular/cli
+
+sudo npm install -g @angular/cli
+
+ng new firstapp
+cd firstapp
+npm start
+
+http://localhost:4200
+
+Day 3
+---------------
+component
+module
+Folder Structure
+-------------
