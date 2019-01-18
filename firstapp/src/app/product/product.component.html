@@ -42,9 +42,9 @@
                                 <img [src]="prod.imageUrl"
                                         *ngIf="showImage"/>
                             </td>
-                            <td>{{prod.productName}}</td>
-                            <td>{{prod.price}}</td>
-                            <td>{{prod.productCode}}</td>
+                            <td>{{prod.productName | myUpper:'upper'}}</td>
+                            <td>{{prod.price | discount:5 | currency:'GBP'}}</td>
+                            <td>{{prod.productCode | lowercase:'lower'}}</td>
                             <td>{{prod.releaseDate}}</td>
                             <td>{{prod.starRating}}</td>
                         </tr>
