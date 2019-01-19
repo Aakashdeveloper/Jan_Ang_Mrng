@@ -7,6 +7,7 @@ import { BookComponent } from './books.component';
 import { ProductComponent } from './product/product.component';
 import { MyPipe } from './product/myUpper.pipe';
 import { DiscountedPipe } from './product/discount.pipe';
+import { ProductSearch } from './product/productSearch.pipe';
 
 @NgModule({
     // All the components & Pipe
@@ -15,7 +16,8 @@ import { DiscountedPipe } from './product/discount.pipe';
         BookComponent,
         ProductComponent,
         MyPipe,
-        DiscountedPipe
+        DiscountedPipe,
+        ProductSearch
     ],
 
     // All Module

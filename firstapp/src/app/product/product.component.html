@@ -15,7 +15,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <h4>{{valueEnter}}</h4>
+                    <h4>Number of product search: {{(products|filterProduct:valueEnter).length}}</h4>
                 </div>
             </div>
             <div class="table-responsive" *ngIf="showTable">
@@ -37,13 +37,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let prod of products">
+                        <tr *ngFor="let prod of products | filterProduct:valueEnter">
                             <td>
                                 <img [src]="prod.imageUrl"
-                                        *ngIf="showImage"/>
+                                        *ngIf="showImage"
+                                        [style.width.px]="imageWidth"/>
                             </td>
-                            <td>{{prod.productName | myUpper:'upper'}}</td>
-                            <td>{{prod.price | discount:5 | currency:'GBP'}}</td>
+                            <td style="color:magenta">{{prod.productName | myUpper:'upper'}}</td>
+                            <td [ngStyle]="{'background-color':prod.price<20?'teal':'orange'}">
+                                {{prod.price | discount:5 | currency:'GBP'}}
+                            </td>
                             <td>{{prod.productCode | lowercase:'lower'}}</td>
                             <td>{{prod.releaseDate}}</td>
                             <td>{{prod.starRating}}</td>
