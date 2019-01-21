@@ -49,7 +49,11 @@
                             </td>
                             <td>{{prod.productCode | lowercase:'lower'}}</td>
                             <td>{{prod.releaseDate}}</td>
-                            <td>{{prod.starRating}}</td>
+                            <td>
+                                <app-star 
+                                [rating]="prod.starRating"
+                                (ratingClicked)="onDataRecieve($event)"></app-star>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
