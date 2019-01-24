@@ -4,7 +4,7 @@ import { ProductService } from './product.service';
 import {IProduct} from './product.model';
 
 @Component({
-    selector: 'app-prod',
+    // selector: 'app-prod',
     templateUrl: './product.component.html',
     // styles: ['thead{color:purple}', 'h4{color:green}']
     styleUrls: ['./product.component.css']
