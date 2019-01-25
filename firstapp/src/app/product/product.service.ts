@@ -15,6 +15,10 @@ export class ProductService {
         return this._httpClient.get<IProduct[]>(this._productUtl);
     }
 
+    getProductDetail(id): Observable<IProduct[]> {
+        return this._httpClient.get<IProduct[]>(`${this._productUtl}?productId=${id}`);
+    }
+
     /*
     getProducts(): Promise<IProduct[]> {
       return this._httpClient.get(this._productUtl)

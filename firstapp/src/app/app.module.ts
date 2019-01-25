@@ -16,6 +16,7 @@ import { OrderComponent } from './orders/order.component';
 import { HomeComponent } from './home/home.component';
 import { ProdDetailComponent } from './product/product_detail.component';
 import { NotFoundComponent } from './shared/notfound.Component';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
     // All the components & Pipe
@@ -45,7 +46,8 @@ import { NotFoundComponent } from './shared/notfound.Component';
             {path: 'home', component: HomeComponent},
             {path: '', redirectTo: 'home', pathMatch: 'full'},
             {path: '**', component: NotFoundComponent},
-        ])
+        ]),
+        ProductModule
 
     ],
 
