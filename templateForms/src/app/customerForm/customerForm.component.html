@@ -1,0 +1,96 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Customer Form
+    </div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label for="firstname">FirstName</label>
+                <input type="text"
+                        placeholder="firstname"
+                        id="firstname"
+                        name="firstname"
+                        [(ngModel)]="model.firstname"
+                        class="form-control"
+                    />
+            </div>
+            <div class="form-group">
+                    <label for="lastname">LastName</label>
+                    <input type="text"
+                            placeholder="lastname"
+                            id="lastname"
+                            name="lastname"
+                            [(ngModel)]="model.lastname"
+                            class="form-control"
+                        />
+            </div>
+            <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email"
+                            placeholder="email"
+                            id="email"
+                            name="email"
+                            [(ngModel)]="model.email"
+                            class="form-control"
+                        />
+            </div>
+            <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input type="password"
+                            placeholder="password"
+                            id="pwd"
+                            name="pwd"
+                            [(ngModel)]="model.pwd"
+                            class="form-control"
+                        />
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"
+                            name="fullTime"
+                            value="fullTime"
+                            [(ngModel)]="model.fullTime"
+                        />FullTime
+                </label>
+            </div>
+            <div class="radio">
+                    <label>
+                        <input type="radio"
+                            name="gender"
+                            value="female"
+                            [(ngModel)]="model.gender"
+                        />Female
+    
+                    </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio"
+                        name="gender"
+                        value="male"
+                        [(ngModel)]="model.gender"
+                    />Male
+
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Code Lang</label>
+                <select class="form-control"
+                        name="codelang"
+                        [(ngModel)]="model.codelang"
+                >
+                    <option value="default">Select Code Lange</option>
+                    <option *ngFor="let lang of languages">
+                        {{lang}}
+                    </option>
+
+                </select>
+            </div>
+            <button type="submit"
+                class="btn btn-success"
+            >
+            Submit
+            </button>
+        </form>
+    </div>
+</div>

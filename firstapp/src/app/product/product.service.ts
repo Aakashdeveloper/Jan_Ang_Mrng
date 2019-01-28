@@ -25,6 +25,10 @@ export class ProductService {
                 .toPromise()
                 .then((res) => res.json());
     }
+
+    var a = 10
+    var b = my age is +a
+    `my age is ${a}`
     */
 
 }
