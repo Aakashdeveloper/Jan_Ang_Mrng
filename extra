@@ -25,3 +25,12 @@ component
 module
 Folder Structure
 -------------
+
+
+
+pristine  untouched     valid
+dirty     touched       invalid
+
+^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$
+
+^([0-9]{5,10})$
