@@ -26,7 +26,8 @@ export class CustomerFormComponent {
 
     formSubmit(form: NgForm): void {
         console.log(form.value);
-        this._FormPosterService.postEmployee(form.value);
+        this._FormPosterService.postEmployee(form.value)
+            .subscribe((res) => console.log('posted sucess', res));
     }
 
 }
