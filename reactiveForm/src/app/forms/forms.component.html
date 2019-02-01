@@ -1,0 +1,39 @@
+<br/><br/>
+<div class="panel panel-success">
+    <div class="panel-heading">
+        Reactive Forms
+    </div>
+    <div class="panel-body">
+        <form (ngSubmit)="save()"
+            novalidate
+            [formGroup]="employeeForm">
+            <div class="form-group">
+                <label class="col-md-3">FirstName</label>
+                <div class="col-md-9">
+                    <input class="form-control"
+                            id="firstName"
+                            type="text"
+                            placeholder="Enter your first name"
+                            formControlName="firstName"
+                    />
+                </div>
+
+            </div>
+            <br/><br/>
+            <div class="form-group">
+                    <label class="col-md-3">LastName</label>
+                    <div class="col-md-9">
+                        <input class="form-control"
+                                id="lastName"
+                                type="text"
+                                placeholder="Enter your last name"
+                                formControlName="lastName"
+                        />
+                    </div>
+    
+            </div>
+            
+    
+        </form>
+    </div>
+</div>  
