@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 import { Employee } from './form.model';
 
@@ -17,12 +17,31 @@ export class FormsComponent implements OnInit {
 
     ngOnInit(): void {
         this.employeeForm = this.fb.group({
-            firstName: ['John'],
-            lastName: ['Andy']
+            firstName: ['', [Validators.required, Validators.minLength(3)] ],
+            lastName: [''],
+            email: ['']
         });
     }
 
     save(): void {
         console.log(this.employeeForm);
     }
+
+    populateData(): void {
+        this.employeeForm.patchValue({
+            email: 'a@a.com'
+        });
+    }
 }
+
+
+/*
+
+populateData(): void {
+        this.employeeForm.setValue({
+            firstName: 'John',
+            lastName: 'andy',
+            email: 'a@a.com'
+        });
+    }
+*/

@@ -7,7 +7,10 @@
         <form (ngSubmit)="save()"
             novalidate
             [formGroup]="employeeForm">
-            <div class="form-group">
+            <div class="form-group"
+                [ngClass]="{'has-error':(employeeForm.get('firstName').touched ||
+                                        employeeForm.get('firstName').dirty) &&
+                                        !employeeForm.get('firstName').valid}">
                 <label class="col-md-3">FirstName</label>
                 <div class="col-md-9">
                     <input class="form-control"
@@ -16,6 +19,16 @@
                             placeholder="Enter your first name"
                             formControlName="firstName"
                     />
+                    <span class="help-block" *ngIf="(employeeForm.get('firstName').touched ||
+                                                    employeeForm.get('firstName').dirty) &&
+                                                    employeeForm.get('firstName').errors">
+                        <span *ngIf="employeeForm.get('firstName').errors.required">  
+                            Please enter firstName
+                        </span>
+                        <span *ngIf="employeeForm.get('firstName').errors.minlength">
+                            Min length should be 3
+                        </span>
+                    </span>
                 </div>
 
             </div>
@@ -31,6 +44,44 @@
                         />
                     </div>
     
+            </div><br/>
+            <div class="form-group">
+                <label class="col-md-3">Email</label>
+                <div class="col-md-9">
+                    <input class="form-control"
+                    id="email"
+                    type="text"
+                    placeholder="enter your email"
+                    formControlName="email"
+                    />
+
+                </div>
+            </div><br/><br/>
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-2">
+                    <span>
+                        <button class="btn btn-success"
+                            type="submit"
+                            [disabled]="!employeeForm.valid">
+                            Submit
+                        </button>
+                    </span>
+                    &nbsp;&nbsp;
+                    <span>
+                        <button type="button"
+                            class="btn btn-primary"
+                            (click)="populateData()">
+                            Test Data
+                        </button>
+                    </span>
+                    &nbsp;&nbsp;
+                    <span>
+                        <button type="reset"
+                            class="btn btn-danger">
+                            Reset
+                        </button>
+                    </span>
+                </div>
             </div>
             
     
