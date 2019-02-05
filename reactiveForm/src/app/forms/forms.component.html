@@ -33,7 +33,9 @@
 
             </div>
             <br/><br/>
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{'has-error':(employeeForm.get('lastName').touched ||
+                                                                employeeForm.get('lastName').dirty) &&
+                                                              !employeeForm.get('lastName').valid}">
                     <label class="col-md-3">LastName</label>
                     <div class="col-md-9">
                         <input class="form-control"
@@ -42,10 +44,22 @@
                                 placeholder="Enter your last name"
                                 formControlName="lastName"
                         />
+                        <span class="help-block" *ngIf="(employeeForm.get('lastName').touched ||
+                                                        employeeForm.get('lastName').dirty) &&
+                                                        employeeForm.get('lastName').errors">
+                                <span *ngIf="employeeForm.get('lastName').errors.required">
+                                    Please eenter lastname
+                                </span>
+                                <span *ngIf="employeeForm.get('lastName').errors.maxlength">
+                                    Max length is 8
+                                </span>
+                        </span>
                     </div>
     
             </div><br/>
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{'has-error':(employeeForm.get('email').touched ||
+                                                employeeForm.get('email').dirty) &&
+                                                !employeeForm.get('email').valid}">
                 <label class="col-md-3">Email</label>
                 <div class="col-md-9">
                     <input class="form-control"
@@ -54,7 +68,54 @@
                     placeholder="enter your email"
                     formControlName="email"
                     />
+                    <span class="help-block" *ngIf="(employeeForm.get('email').touched ||
+                                                        employeeForm.get('email').dirty) &&
+                                                        employeeForm.get('email').errors">
+                                <span *ngIf="employeeForm.get('email').errors.required">
+                                    Please eenter email
+                                </span>
+                                <span *ngIf="employeeForm.get('email').errors.pattern">
+                                    please enter correct email 
+                                </span>
+                    </span>
 
+                </div>
+            </div><br/><br/>
+            <div class="form-group" [ngClass]="{'has-error':(employeeForm.get('phone').touched ||
+                                                                employeeForm.get('phone').dirty) &&
+                                                                !employeeForm.get('phone').valid}">
+                <label class="col-md-3 control-label" for="phone">
+                    Phone
+                </label>
+                <div class="col-md-9">
+                    <input class="form-control"
+                        id="phone"
+                        type="text"
+                        placeholder="enterPhone"
+                        formControlName="phone"/>
+                    <span class="help-block" *ngIf="(employeeForm.get('phone').touched ||
+                        employeeForm.get('phone').dirty) &&
+                        employeeForm.get('phone').errors">
+                        <span *ngIf="employeeForm.get('phone').errors.required">
+                            Please eenter phone
+                        </span>
+                    </span>
+
+                </div>
+            </div><br/><br/>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Send Notification</label>
+                <div class="col-md-9">
+                    <label class="radio-inline">
+                        <input type="radio" value="phone" 
+                            formControlName="notification"
+                            (click)="setNotification('phone')"/>Phone
+                    </label>
+                    <label class="radio-inline">
+                            <input type="radio" value="email" 
+                                formControlName="notification"
+                                (click)="setNotification('email')"/>Email
+                    </label>
                 </div>
             </div><br/><br/>
             <div class="form-group">

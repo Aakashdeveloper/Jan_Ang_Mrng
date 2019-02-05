@@ -18,8 +18,10 @@ export class FormsComponent implements OnInit {
     ngOnInit(): void {
         this.employeeForm = this.fb.group({
             firstName: ['', [Validators.required, Validators.minLength(3)] ],
-            lastName: [''],
-            email: ['']
+            lastName: ['', [Validators.required, Validators.maxLength(8)]],
+            email: ['',    [Validators.required, Validators.pattern('[a-zA-Z0-9]+@[a-zA-Z0-9]+')]],
+            phone: [''],
+            notification: ''
         });
     }
 
@@ -31,6 +33,17 @@ export class FormsComponent implements OnInit {
         this.employeeForm.patchValue({
             email: 'a@a.com'
         });
+    }
+
+    setNotification(notifyVia: string): void {
+        const phoneControl = this.employeeForm.get('phone');
+        if (notifyVia === 'phone') {
+            phoneControl.setValidators(Validators.required);
+        } else {
+            phoneControl.clearValidators();
+        }
+
+        phoneControl.updateValueAndValidity();
     }
 }
 

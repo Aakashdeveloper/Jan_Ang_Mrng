@@ -10,6 +10,7 @@ import { OrderComponent } from './orders/order.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './shared/notfound.Component';
 import { ProductModule } from './product/product.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
     // All the components & Pipe
@@ -26,12 +27,7 @@ import { ProductModule } from './product/product.module';
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        RouterModule.forRoot([
-            {path: 'orders', component: OrderComponent},
-            {path: 'home', component: HomeComponent},
-            {path: '', redirectTo: 'home', pathMatch: 'full'},
-            {path: '**', component: NotFoundComponent},
-        ]),
+        AppRoutingModule,
         ProductModule
     ],
 
