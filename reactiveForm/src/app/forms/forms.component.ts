@@ -19,7 +19,10 @@ export class FormsComponent implements OnInit {
         this.employeeForm = this.fb.group({
             firstName: ['', [Validators.required, Validators.minLength(3)] ],
             lastName: ['', [Validators.required, Validators.maxLength(8)]],
-            email: ['',    [Validators.required, Validators.pattern('[a-zA-Z0-9]+@[a-zA-Z0-9]+')]],
+            emailGroup: this.fb.group({
+                email: ['',    [Validators.required, Validators.pattern('[a-zA-Z0-9]+@[a-zA-Z0-9]+')]],
+                confirmEmail: ['', [ Validators.required]],
+            }, {validator: emailMatcher}),
             phone: [''],
             notification: ''
         });
