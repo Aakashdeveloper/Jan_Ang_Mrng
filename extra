@@ -34,3 +34,8 @@ dirty     touched       invalid
 ^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$
 
 ^([0-9]{5,10})$
+
+
+//
+css
+rating

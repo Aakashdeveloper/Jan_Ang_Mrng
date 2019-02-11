@@ -97,7 +97,7 @@
                     formControlName="email"
                     />
                     <span class="help-block" *ngIf="(employeeForm.get('emailGroup.email').touched ||
-                                                        employeeForm.get('emailGroup.email').dirty) &&
+                                                       employeeForm.get('emailGroup.email').dirty) &&
                                                         employeeForm.get('emailGroup.email').errors">
                                 <span *ngIf="employeeForm.get('emailGroup.email').errors.required">
                                     Please eenter email
@@ -115,7 +115,7 @@
                 <label class="col-md-3 control-label" for="confirmEmail">Confirm Email</label>
                 <div class="col-md-9">
                     <input class="form-control"
-                    type="text",
+                    type="text"
                     id="confirmEmail"
                     placeholder="confirmEmail"
                     formControlName="confirmEmail"

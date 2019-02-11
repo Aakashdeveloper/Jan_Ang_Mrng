@@ -1,7 +1,20 @@
 import { Component, OnInit} from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 import { Employee } from './form.model';
+
+function emailMatcher(c: AbstractControl) {
+    const emailControl = c.get('email');
+    const confirmEmailControl = c.get('confirmEmail');
+
+    if (emailControl.pristine || confirmEmailControl.pristine) {
+        return null;
+    }
+    if (emailControl.value === confirmEmailControl.value) {
+        return null;
+    }
+    return true;
+}
 
 @Component({
     selector: 'app-form',
